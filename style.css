@@ -72,15 +72,17 @@ h1, h2, h3, .logo {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: var(--space-md) var(--space-lg);
+    padding: var(--space-sm) var(--space-lg);
     z-index: 100;
     background: transparent;
     border-bottom: var(--border-thin);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .logo {
-    font-size: 1.5rem;
+    font-size: clamp(1.1rem, 3vw, 1.5rem);
+    white-space: nowrap;
 }
 
 .desktop-nav {
@@ -96,6 +98,7 @@ h1, h2, h3, .logo {
     text-transform: uppercase;
     border: var(--border-thin);
     padding: 0.5rem 1rem;
+    white-space: nowrap;
 }
 
 .hero-section {
@@ -116,7 +119,7 @@ h1, h2, h3, .logo {
     height: 100%;
     object-fit: cover;
     z-index: -2;
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 .hero-section::after {
@@ -131,12 +134,13 @@ h1, h2, h3, .logo {
 }
 
 .hero-content h1 {
-    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-size: clamp(2rem, 6vw, 5rem);
     margin-bottom: var(--space-sm);
+    white-space: nowrap;
 }
 
 .hero-content p {
-    font-size: 1.1rem;
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
     font-weight: 300;
     letter-spacing: 0.08em;
 }
@@ -161,7 +165,7 @@ h1, h2, h3, .logo {
 }
 
 .projects-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .folder-card {
@@ -318,7 +322,7 @@ h1, h2, h3, .logo {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(17, 57, 57, 0.7);
+    background: rgba(17, 57, 57, 0.85);
     z-index: 1000;
     opacity: 0;
     pointer-events: none;
@@ -383,7 +387,7 @@ h1, h2, h3, .logo {
         grid-template-columns: 1fr;
     }
     .main-header {
-        padding: var(--space-md);
+        padding: var(--space-sm) var(--space-md);
     }
     .close-overlay {
         right: var(--space-md);
