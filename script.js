@@ -1,40 +1,57 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const anchors = document.querySelectorAll('a[href^="#"]');
+    const header = document.querySelector('.site-header');
     
-    anchors.forEach(anchor => {
-        anchor.addEventListener("click", function(e) {
-            const targetId = this.getAttribute("href");
-            
-            if (targetId === "#") return;
+    const handleScroll = () => {
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
             
             const targetElement = document.querySelector(targetId);
-            
             if (targetElement) {
                 e.preventDefault();
                 targetElement.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
+                    behavior: 'smooth',
+                    block: 'start'
                 });
-                
-                if (history.pushState) {
-                    history.pushState(null, null, targetId);
-                } else {
-                    window.location.hash = targetId;
-                }
+                history.pushState(null, null, targetId);
             }
         });
     });
 
-    const handleHashState = () => {
-        const hash = window.location.hash;
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-            if(link.getAttribute('href') === hash) {
-                link.classList.add('active');
-            }
-        });
-    };
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    if ('IntersectionObserver' in window) {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -50px 0px',
+            threshold: 0.1
+        };
 
-    window.addEventListener("hashchange", handleHashState);
-    handleHashState();
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        revealElements.forEach(element => {
+            revealObserver.observe(element);
+        });
+    } else {
+        revealElements.forEach(element => {
+            element.classList.add('active');
+        });
+    }
 });
