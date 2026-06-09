@@ -1,53 +1,33 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const handleHashChange = () => {
+    
+    const handleHashState = () => {
         const hash = window.location.hash;
-        const targetOverlays = ['#folder-photo', '#folder-video', '#menu'];
-        
-        if (targetOverlays.includes(hash)) {
+        if (hash === '#menu-modal' || hash === '#video-modal') {
             document.body.style.overflow = 'hidden';
         } else {
             document.body.style.overflow = '';
         }
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    handleHashChange();
+    window.addEventListener('hashchange', handleHashState);
+    handleHashState();
 
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    const clockElement = document.getElementById('system-clock');
     
-    anchorLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            
-            if (targetId.startsWith('#folder-') || targetId === '#menu') {
-                return;
-            }
-            
-            if (targetId === '#') {
-                e.preventDefault();
-                return;
-            }
+    const updateSystemTime = () => {
+        if (!clockElement) return;
+        const now = new Date();
+        const options = { 
+            timeZone: 'Europe/Vilnius', 
+            hour12: false, 
+            hour: '2-digit', 
+            minute: '2-digit', 
+            second: '2-digit' 
+        };
+        const formatter = new Intl.DateTimeFormat('lt-LT', options);
+        clockElement.textContent = `EEST / VNO: ${formatter.format(now)}`;
+    };
 
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                e.preventDefault();
-                
-                if (document.body.style.overflow === 'hidden') {
-                    window.location.hash = '';
-                    document.body.style.overflow = '';
-                }
-                
-                const headerHeight = document.querySelector('.main-header').offsetHeight;
-                const sectionPosition = targetSection.getBoundingClientRect().top + window.scrollY - headerHeight - 20;
-                
-                window.scrollTo({
-                    top: sectionPosition,
-                    behavior: 'smooth'
-                });
-                
-                history.pushState(null, null, targetId);
-            }
-        });
-    });
+    setInterval(updateSystemTime, 1000);
+    updateSystemTime();
 });
