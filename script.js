@@ -1,33 +1,40 @@
 document.addEventListener("DOMContentLoaded", () => {
+    const anchors = document.querySelectorAll('a[href^="#"]');
     
+    anchors.forEach(anchor => {
+        anchor.addEventListener("click", function(e) {
+            const targetId = this.getAttribute("href");
+            
+            if (targetId === "#") return;
+            
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+                
+                if (history.pushState) {
+                    history.pushState(null, null, targetId);
+                } else {
+                    window.location.hash = targetId;
+                }
+            }
+        });
+    });
+
     const handleHashState = () => {
         const hash = window.location.hash;
-        if (hash === '#menu-modal' || hash === '#video-modal') {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if(link.getAttribute('href') === hash) {
+                link.classList.add('active');
+            }
+        });
     };
 
-    window.addEventListener('hashchange', handleHashState);
+    window.addEventListener("hashchange", handleHashState);
     handleHashState();
-
-    const clockElement = document.getElementById('system-clock');
-    
-    const updateSystemTime = () => {
-        if (!clockElement) return;
-        const now = new Date();
-        const options = { 
-            timeZone: 'Europe/Vilnius', 
-            hour12: false, 
-            hour: '2-digit', 
-            minute: '2-digit', 
-            second: '2-digit' 
-        };
-        const formatter = new Intl.DateTimeFormat('lt-LT', options);
-        clockElement.textContent = `EEST / VNO: ${formatter.format(now)}`;
-    };
-
-    setInterval(updateSystemTime, 1000);
-    updateSystemTime();
 });
