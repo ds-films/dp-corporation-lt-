@@ -3,30 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DP CORPORATION | Central Hub</title>
-    <meta name="description" content="DP CORPORATION Central Hub. Asmeninė Dominik Šuškevič ekosistema, jungianti kinematografiją, fotografiją ir medijų projektus Kaune.">
+    <title>DP CORPORATION | Kūryba ir Meistriškumas</title>
+    <meta name="description" content="DP CORPORATION – asmeninė Dominik Šuškevič vizualinio turinio erdvė. Kinematografija, meninė fotografija ir išskirtiniai projektai.">
     <link rel="canonical" href="https://corporation.dominikphotofficial.lt/">
     
+    <!-- JSON-LD Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "DP CORPORATION",
-      "url": "https://corporation.dominikphotofficial.lt/",
-      "logo": "https://i.postimg.cc/4NqyTsg1/LATVIJA-2025-33.jpg",
-      "founder": {
-        "@type": "Person",
-        "name": "Dominik Šuškevič",
-        "url": "https://corporation.dominikphotofficial.lt/"
-      },
-      "location": {
-        "@type": "Place",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Kaunas",
-          "addressCountry": "LT"
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://corporation.dominikphotofficial.lt/#dominik",
+          "name": "Dominik Šuškevič",
+          "alternateName": "dominikphotofficial",
+          "url": "https://corporation.dominikphotofficial.lt/",
+          "sameAs": [
+            "https://instagram.com/dominikphotofficial",
+            "https://behance.net/dominikphotofficial",
+            "https://linkedin.com/in/dominikphotofficial",
+            "https://youtube.com/@dominikphotofficial"
+          ]
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://corporation.dominikphotofficial.lt/#organization",
+          "name": "DP CORPORATION",
+          "url": "https://corporation.dominikphotofficial.lt/",
+          "founder": {
+            "@id": "https://corporation.dominikphotofficial.lt/#dominik"
+          }
         }
-      }
+      ]
     }
     </script>
 
@@ -37,123 +45,97 @@
 </head>
 <body>
 
-    <header class="sys-header">
-        <div class="sys-container header-grid">
-            <a href="#" class="sys-logo">DP CORPORATION</a>
-            <nav class="sys-nav">
-                <a href="#anons-core">Anons Core</a>
-                <a href="#biography">Biography</a>
-                <a href="#footer-node">System Nodes</a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">DP CORPORATION</a>
+            <nav class="main-nav">
+                <a href="#anonsai">Anonsai</a>
+                <a href="#projektai">Projektai</a>
+                <a href="#apie">Apie</a>
+                <a href="#kontaktai">Kontaktai</a>
             </nav>
-            <a href="#menu-modal" class="sys-menu-btn">Menu</a>
         </div>
     </header>
 
-    <div id="menu-modal" class="sys-modal">
-        <a href="#" class="modal-close">×</a>
-        <div class="modal-wrapper">
-            <nav class="modal-nav">
-                <a href="#anons-core">Anons Core</a>
-                <a href="#biography">Biography</a>
-                <a href="#footer-node">System Nodes</a>
-            </nav>
-        </div>
-    </div>
-
     <main>
-        <section id="hero" class="hero-module">
+        <section class="hero">
             <video autoplay loop muted playsinline class="hero-video" poster="https://i.postimg.cc/4NqyTsg1/LATVIJA-2025-33.jpg">
                 <source src="" type="video/mp4">
             </video>
             <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <div class="sys-badge">SYSTEM ACTIVATED</div>
+            <div class="hero-content reveal">
                 <h1>DP CORPORATION</h1>
-                <p>Kur kūryba susitinka su meistriškumu</p>
+                <p class="slogan">Kur kūryba susitinka su meistriškumu</p>
             </div>
         </section>
 
-        <section id="anons-core" class="sys-section">
-            <div class="sys-container">
-                <header class="section-header">
-                    <h2>ANONS CORE</h2>
-                    <span class="sub-label">The Newsroom / Brain</span>
-                </header>
-                
-                <div class="grid-anons">
-                    <article class="anons-card">
-                        <div class="card-badge">ANONS 01 // TFP-BOOKING</div>
-                        <h3>Nemokamos TFP Fotosesijos Kaune</h3>
-                        <p>Dominik Šuškevič atveria ribotą kiekį nemokamų TFP (Time for Print) fotografijos vietų Kaune. Ši iniciatyva skirta fundamentaliam vizualinio portfolio plėtimui ir naujų kinematografinių formų paieškai kartu su unikaliais veidais.</p>
-                        <a href="https://portfolio.dominikphotofficial.lt/tfp-booking.html" class="sys-btn" target="_blank" rel="noopener">Registruotis TFP sesijai</a>
+        <section id="anonsai" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">Anonsai</h2>
+                <div class="grid cards-grid">
+                    <article class="card reveal">
+                        <div class="card-content">
+                            <h3>TFP Fotosesijos Kaune</h3>
+                            <p>Išskirtinė galimybė nemokamoms TFP fotografijos sesijoms. Kviečiame kurti unikalią, kinematografinę estetiką kartu ir praplėsti asmeninius vizualinius horizontus.</p>
+                        </div>
+                        <a href="tfp-booking-about.html" class="btn">Skaityti plačiau</a>
                     </article>
 
-                    <article class="anons-card">
-                        <div class="card-badge">ANONS 02 // CINEMA PRODUCTION</div>
-                        <h3>Vasaros Trumpametražis Filmas</h3>
-                        <p>Oficialiai skelbiamas naujas kinematografinis projektas, sekiantis vasaros jaunimo naratyvus. Kartu pristatomas pirmasis viešas, kalbamojo formato „YouTube“ vaizdo įrašas, kuriame Dominik kreipiasi į auditoriją palaikymo, detalizuodamas pasiruošimą tarptautiniams kino festivaliams ateinantį pavasarį.</p>
-                        <a href="#video-modal" class="sys-btn-outline">Žiūrėti kreipimąsi</a>
+                    <article class="card reveal">
+                        <div class="card-content">
+                            <h3>Vasaros Kino Projektas</h3>
+                            <p>Oficialiai pradedamas naujas trumpametražio kino projektas. Laukite pirmojo atviro, kalbamojo formato vaizdo įrašo „YouTube“ platformoje apie kūrybinius užkulisius ir pasiruošimą festivaliams.</p>
+                        </div>
+                        <a href="#" class="btn btn-disabled" aria-disabled="true">Laukiama premjeros</a>
                     </article>
 
-                    <article class="anons-card">
-                        <div class="card-badge">ANONS 03 // AWARD ARCHIVE</div>
-                        <h3>„Frozen Time: What If“ Triumfas</h3>
-                        <p>Archyvinis įrašas: istorinis laimėjimas, žymintis I-ąją vietą tarptautiniame „Ąžuolyno“ kino festivalyje studentų kategorijoje už trumpametražį filmą „Frozen Time: What If“. Reikšmingas įvykis DP CORPORATION ekosistemoje.</p>
-                        <a href="https://portfolio.dominikphotofficial.lt/frozen-time.html" class="sys-btn" target="_blank" rel="noopener">Peržiūrėti archyvą</a>
+                    <article class="card reveal" id="projektai">
+                        <div class="card-content">
+                            <h3>„Frozen Time: What If“</h3>
+                            <p>Mūsų pasididžiavimas – I-oji vieta studentų kategorijoje tarptautiniame „Ąžuolyno“ kino festivalyje. Tai svarbus įvertinimas, patvirtinantis mūsų kinematografinės vizualinės krypties jėgą.</p>
+                        </div>
+                        <a href="https://portfolio.dominikphotofficial.lt/frozen-time.html" class="btn" target="_blank" rel="noopener">Žiūrėti projektą</a>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="biography" class="sys-section">
-            <div class="sys-container">
-                <header class="section-header">
-                    <h2>BIOGRAPHY MODULE</h2>
-                    <span class="sub-label">Creator Identity</span>
-                </header>
-                
-                <div class="grid-bio">
-                    <figure class="bio-frame">
-                        <img src="https://i.postimg.cc/fbQWzQmD/imdb-portrait-D-S-1.jpg" alt="Dominik Šuškevič" loading="lazy">
+        <section id="apie" class="section">
+            <div class="container">
+                <h2 class="section-title reveal">Apie Kūrėją</h2>
+                <div class="about-grid">
+                    <figure class="about-image-wrapper reveal">
+                        <img src="https://i.postimg.cc/fbQWzQmD/imdb-portrait-D-S-1.jpg" alt="Dominik Šuškevič portretas" class="about-image" loading="lazy">
                     </figure>
-                    <div class="bio-philosophy">
-                        <div class="card-badge">DOMINIK ŠUŠKEVIČ</div>
-                        <p class="philosophy-text">DP CORPORATION nėra masinė produkcijos linija. Tai išgryninta, asmeninė erdvė, veikianti pagal griežtus estetinės kontrolės ir techninio tikslumo principus. Kiekvienas kadras, kiekviena šviesos tekstūra yra kruopščiai apgalvota vizualinės kalbos dalis.</p>
-                        <ul class="bio-stats">
-                            <li><span class="stat-label">System Focus:</span> Kinematografija, Estetinė fotografija</li>
-                            <li><span class="stat-label">Hardware Core:</span> Fujifilm X-S20</li>
-                            <li><span class="stat-label">Ecosystem Node:</span> dominikbum7 (13k+ bendruomenė)</li>
-                        </ul>
+                    <div class="about-text reveal">
+                        <p>DP CORPORATION nėra masinė produkcijos linija. Tai asmeninė, išgryninta erdvė, kurioje kuria Dominik Šuškevič. Kiekvienas kadras, projektas ar vaizdo įrašas yra atidžiai formuojamas remiantis griežtais estetinės kontrolės ir techninio tikslumo principais.</p>
+                        <p>Pagrindinis dėmesys skiriamas gilioms tekstūroms, kinematografiniam apšvietimui ir minimalistinėms kompozicijoms. Ši platforma sukurta tiems, kurie vertina meninę kokybę ir fundamentalią vizualinę kalbą.</p>
                     </div>
+                </div>
+                
+                <div class="grid gallery-grid reveal" style="margin-top: 4rem;">
+                    <div class="gallery-item"><img src="https://i.postimg.cc/4NqyTsg1/LATVIJA-2025-33.jpg" alt="Kinematografinė estetika" loading="lazy"></div>
+                    <div class="gallery-item"><img src="https://i.postimg.cc/fbQWzQmD/imdb-portrait-D-S-1.jpg" alt="Meninis portretas" loading="lazy"></div>
+                    <div class="gallery-item empty-gallery-item"></div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer id="footer-node" class="sys-footer">
-        <div class="sys-container">
-            <div class="footer-grid">
-                <div class="footer-module sys-logs">
-                    <span class="sys-badge alert">BETA VERSION</span>
-                    <span class="sys-badge success">ACTIVE NODE: LITHUANIAN</span>
-                    <div id="system-clock" class="time-log">EEST / VNO: SYNCING...</div>
-                </div>
-                
-                <div class="footer-module lang-nodes">
-                    <span class="node-title">System Directory:</span>
-                    <nav class="node-links">
-                        <a href="/lt/" class="active-node">LT [Core]</a>
-                        <a href="/en/" class="pending-node">EN [Beta]</a>
-                        <a href="/pl/" class="pending-node">PL [Offline]</a>
-                    </nav>
-                </div>
-                
-                <div class="footer-module copyright">
-                    <p>© 2026 Dominik Šuškevič. DP CORPORATION.</p>
-                </div>
+    <footer id="kontaktai" class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-links">
+                <a href="https://instagram.com/dominikphotofficial" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://behance.net/dominikphotofficial" target="_blank" rel="noopener">Behance</a>
+                <a href="https://linkedin.com/in/dominikphotofficial" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://youtube.com/@dominikphotofficial" target="_blank" rel="noopener">YouTube</a>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 Dominik Šuškevič. DP CORPORATION. Visos teisės saugomos.</p>
             </div>
         </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
